@@ -16,8 +16,10 @@ This is a Django-based Wikipedia-style encyclopedia site built as part of the CS
 
 - **Python** 3.10.x  
 - **Django** 3.2.4 — Web framework used for backend logic and routing  
-- **markdown2** — Converts Markdown content into HTML  
-- **setuptools** >= 65.0 — Ensures compatibility for legacy `distutils` dependencies
+- **markdown2** — Library to convert Markdown content into HTML  
+- **setuptools** >= 65.0 — Build tool to ensure compatibility with legacy `distutils` packages  
+- **django-debug-toolbar** — In-browser debug panel for inspecting Django apps
+
 
 ## Requirements
 
