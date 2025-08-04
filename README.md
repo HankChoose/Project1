@@ -32,8 +32,10 @@ pip install -r requirements.txt
 Dependencies include:
 - Django==3.2.4
 - markdown2
+- setuptools >= 65.0
+- django-debug-toolbar==4.3.0
 
-For local development and submission, only Django and markdown2 are required.
+Make sure all these packages are installed to avoid errors during migration or development.
 
 ## Getting Started
 
@@ -63,14 +65,19 @@ For local development and submission, only Django and markdown2 are required.
     ```bash
     python manage.py migrate
     ```
+5. **(Optional) Create a superuser to access Django admin site**:
 
-5. **Run the development server**:
+    ```bash
+    python manage.py createsuperuser 
+    ```
+    then visit http://127.0.0.1:8000/admin
+6. **Run the development server**:
 
     ```bash
     python manage.py runserver
     ```
 
-6. **Open the site**:
+7. **Open the site**:
 
     Open your browser and go to:  
     http://127.0.0.1:8000
