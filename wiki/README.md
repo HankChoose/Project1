@@ -14,10 +14,9 @@ This is a Django-based Wikipedia-style encyclopedia site built as part of the CS
 
 ## Technologies
 
-- **Python** 3.8 or higher  
-- **Django** 3.2.4 — Web framework used for backend logic and routing  
-- **markdown2** — Converts Markdown content into HTML  
-- **setuptools** >= 65.0 — Ensures compatibility for legacy `distutils` dependencies
+- Python 3.8 or higher
+- Django 3.2.4
+- Markdown2
 
 ## Requirements
 
