@@ -14,7 +14,7 @@ This is a Django-based Wikipedia-style encyclopedia site built as part of the CS
 
 ## Technologies
 
-- **Python** 3.8 or higher  
+- **Python** 3.10.x  
 - **Django** 3.2.4 — Web framework used for backend logic and routing  
 - **markdown2** — Converts Markdown content into HTML  
 - **setuptools** >= 65.0 — Ensures compatibility for legacy `distutils` dependencies
@@ -46,7 +46,7 @@ For local development and submission, only Django and markdown2 are required.
 2. **Create a virtual environment**:
 
     ```bash
-    python -m venv venv
+    python3.10 -m venv venv
     source venv/bin/activate   # On Windows: venv\Scripts\activate
     ```
 
