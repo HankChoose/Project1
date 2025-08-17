@@ -60,6 +60,13 @@ from django.urls import reverse
 def entry(request, title):
     # Get the content of the requested entry
     content = util.get_entry(title)
+    if content is None:
+        # If the entry does not exist, render a prompt directly without calling the conversion function.
+        return render(request, "encyclopedia/entrycontent.html", {
+            "title": title.capitalize(),
+            "content": f"Page not found: {title}",
+        })
+
     content_html=util.convert_markdown_to_html(content)
     # If the entry does not exist, render an error page
     if content is None:
@@ -187,21 +194,19 @@ def search(request):
     #return JsonResponse({}, status=400)
 
 def searchfrom(request):
-    #if request.method == 'GET' and request.is_ajax():
-        #query = request.POST.get('q', '')
-        #query_str = json.dumps(query)
-        #print(query_str)
-    #return HttpResponse("query_str: " + query)
-    q_value = request.GET.get('q')
-    #print("q_value="+q_value)
+    q_value = request.GET.get('q', '').strip().lower()
 
     my_list = util.list_entries()
-    search_string = [q_value]
-    new_list = [item for item in my_list if any(char.lower() in item.lower() for char in search_string)]
+    if q_value:
+        new_list = [item for item in my_list if q_value in item.lower()]
+    else:
+        new_list = []
+    if not new_list:
+        new_list = []
+        
     return render(request, "encyclopedia/index.html", {
-        "entries": new_list
-        #"entries": request.session["entries"]
-    
+        "entries": new_list,
+        "search_mode": True
     })
 
 #from .util import convert_markdown_to_html

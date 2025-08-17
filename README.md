@@ -50,8 +50,8 @@ Make sure all these packages are installed to avoid errors during migration or d
 2. **Create a virtual environment**:
 
     ```bash
-    python3.10 -m venv venv
-    source venv/bin/activate   # On Windows: venv\Scripts\activate
+    python3.10 -m venv .venv
+    source .venv/bin/activate   # On Windows: .venv\Scripts\activate
     ```
 
 3. **Install dependencies**:

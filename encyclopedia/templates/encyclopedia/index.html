@@ -11,11 +11,19 @@
 {% block body %}
     <h1>All Pages</h1>
     <ul id="list-container">
-        {% for entry in entries %}
-             <li><a href="wiki/{{ entry }}">{{ entry }}</a></li>
-        {% empty %}
-            <li>No Entry</li>
-        {% endfor %}
+ 
+        {% if entries %}
+            {% for entry in entries %}
+                <li><a href="{% url 'encyclopedia:entry' entry %}">{{ entry }}</a></li>
+            {% endfor %}
+        {% else %}
+            {% if search_mode %}
+                <li>No match item</li>
+            {% else %}
+                <li>No Entry</li>        
+            {% endif %}
+        {% endif %}
+
     </ul>
 
 {% endblock %}

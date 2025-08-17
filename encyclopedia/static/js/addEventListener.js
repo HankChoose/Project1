@@ -17,13 +17,17 @@ $(document).ready(function() {
 			dataType: 'JSON',
       //dataType: 'text',
 			success: function(data) {
-				console.log("data0="+data);
+				console.log("data:", data);
+        //console.log("typeof data:", typeof data);
+        //console.log("Array.isArray(data):", Array.isArray(data));
         //var listData = response.list_data;
         
-        // 清空列表容器
         listContainer.empty();
 
-        // 将列表数据添加到容器中
+        if (!data || data.length === 0) {
+          listContainer.append('<li>No match item</li>');
+          return;
+        }
         
         $.each(data, function(index, item) {
           var item_url="wiki/"+item

@@ -9,7 +9,7 @@ __pycache__/
 *.sqlite3
 
 # Env
-.env
+.env*
 venv/
 env/
 ENV/
