@@ -26,25 +26,30 @@ class NewEentryForm(forms.Form):
     #newEentryTitle = forms.CharField(label="New Entry Title:")
     #newEentryContent = forms.CharField(label="New Entry Content:")
 def entryadd(request):
-    # Get the content of the requested entry
-    
     if request.method == "POST":
         formPOST = NewEentryForm(request.POST)
         if formPOST.is_valid():
-           newTitle = formPOST.cleaned_data["newEentryTitle"]
-           newContent = formPOST.cleaned_data["newEentryContent"]
-           #request.session["entries"] +=[newTitle]
-           util.save_entry(newTitle,newContent)
-           return HttpResponseRedirect(reverse("encyclopedia:index"))
+            newTitle = formPOST.cleaned_data["newEentryTitle"]
+            newContent = formPOST.cleaned_data["newEentryContent"]
+
+            #检查是否已经存在（不区分大小写）
+            entries = util.list_entries()
+            if newTitle.lower() in (e.lower() for e in entries):
+                return render(request, "encyclopedia/entryadd.html", {
+                    "entryFrom": formPOST,
+                    "error_message": f"An entry with the title '{newTitle}' already exists!"
+                })
+
+            # 如果不存在，才保存
+            util.save_entry(newTitle, newContent)
+            return HttpResponseRedirect(reverse("encyclopedia:index"))
         else:
             return render(request, "encyclopedia/entryadd.html", {
-            "entryFrom":formPOST
-        })
-
-      
+                "entryFrom": formPOST
+            })
 
     return render(request, "encyclopedia/entryadd.html", {
-        "entryFrom":NewEentryForm()
+        "entryFrom": NewEentryForm()
     })
 
 

@@ -10,7 +10,10 @@
 
 {% block body %}
    <h1>Add Entry</h1>
-
+   
+{% if error_message %}
+       <p style="color:red;">{{ error_message }}</p>
+{% endif %}
 
 <form action="{% url 'encyclopedia:entryadd' %}" method="post">
     {% csrf_token %}
