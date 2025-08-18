@@ -64,13 +64,13 @@ def entry(request, title):
         # If the entry does not exist, render a prompt directly without calling the conversion function.
         return render(request, "encyclopedia/entrycontent.html", {
             "title": title.capitalize(),
-            "content": f"Page not found: {title}",
+            "content": f"Entry not found: {title}",
         })
 
     content_html=util.convert_markdown_to_html(content)
     # If the entry does not exist, render an error page
     if content is None:
-        #return HttpResponseNotFound(f"Page not found: {title}")
+        #return HttpResponseNotFound(f"Entry not found: {title}")
         return render(request, "encyclopedia/entrycontent.html", {
             "title": title.capitalize(),
             "content": f"Page not found: {title}",

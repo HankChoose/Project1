@@ -2,15 +2,15 @@
 
 This is a Django-based Wikipedia-style encyclopedia site built as part of the CS50 Web Programming with Python and JavaScript course.
 
-## Features
+## Core Features
 
-- Create new encyclopedia entries  
-- Edit existing entries  
-- View individual entry pages  
-- Search for entries (exact and partial matches)  
-- Display a random entry  
-- Use Markdown for content formatting  
-- Error handling for duplicate entries and missing pages  
+- Index Page
+- Entry Page
+- Search
+- New Page
+- Edit Page
+- Random Page
+- Markdown Conversion 
 
 ## Technologies
 
