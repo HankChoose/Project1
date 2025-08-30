@@ -44,14 +44,15 @@ Make sure all these packages are installed to avoid errors during migration or d
     ```bash
     git clone https://github.com/me50/HankChoose.git
     cd HankChoose
-    git checkout web50/projects/2020/1/wiki
+    git checkout web50/projects/2020/x/wiki
     ```
 
 2. **Create a virtual environment**:
 
     ```bash
     python3.10 -m venv .venv
-    source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+    source .venv/bin/activate.ps1 # on Linux/macOS   
+    .venv\Scripts\activate.bat    # On Windows 
     ```
 
 3. **Install dependencies**:
